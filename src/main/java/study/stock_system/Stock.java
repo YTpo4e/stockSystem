@@ -4,8 +4,8 @@ public class Stock {
     private int goods = 1000;
 
     synchronized int buyGoods(int purchasedGoods) {
-        if (this.goods >= purchasedGoods) {
-            this.goods -= purchasedGoods;
+        if (goods >= purchasedGoods) {
+            goods -= purchasedGoods;
             return purchasedGoods;
         } else {
             purchasedGoods = goods;
