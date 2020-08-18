@@ -3,14 +3,14 @@ package study.stock_system;
 public class Stock {
     private int goods = 1000;
 
-    synchronized int buyGoods(int goods) {
-        if (this.goods >= goods) {
-            this.goods -= goods;
-            return goods;
+    synchronized int buyGoods(int purchasedGoods) {
+        if (this.goods >= purchasedGoods) {
+            this.goods -= purchasedGoods;
+            return purchasedGoods;
         } else {
-            goods = this.goods;
+            purchasedGoods = goods;
             goods = 0;
-            return goods;
+            return purchasedGoods;
         }
     }
 

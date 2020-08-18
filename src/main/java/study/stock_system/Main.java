@@ -10,15 +10,11 @@ public class Main {
             int numberOfBuyers = Integer.parseInt(args[0]);
             Stock stock = new Stock();
             CyclicBarrier barrier = new CyclicBarrier(numberOfBuyers);
-            ExecutorService service = Executors.newFixedThreadPool(numberOfBuyers);
             for (int i = 0; i < numberOfBuyers; i++) {
-                service.execute(new Buyer(stock, barrier, i));
+                new Thread(new Buyer(stock, barrier, i)).start();
             }
 
-            service.shutdown();
-
         }
-
     }
 
 
